@@ -13,7 +13,8 @@ function valiLogin(req, res, next) {
     });
     
     if (check.length > 0) {
-        next('route');
+        req.session.user = username;
+        res.redirect('/admin');
     }else {
         res.send("Đăng nhập không thành công");
     }
